@@ -34,11 +34,12 @@ namespace managerEmployess.Api.Controllers
             return await _employeeUseCase.GetAllEmployeesAsync();
         }
 
-        //[HttpPut]
-        //public async Task<string> Update_Content(string idContent, UpdateContentCommand command)
-        //{
-        //    return await _contentUseCase.UpdateContentAsync(idContent, _mapper.Map<Content>(command));
-        //}
+        [HttpPut]
+        [Route("UpdateEmployee")]
+        public async Task<string> Update_Employee(int idEmployee, [FromBody] UpdateEmployee command)
+        {
+            return await _employeeUseCase.UpdateEmployeeAsync(idEmployee, command);
+        }
 
         //[HttpGet("{idContent}")]
         //public async Task<ContentWithDelivery> Get_ById_Content(string idContent)

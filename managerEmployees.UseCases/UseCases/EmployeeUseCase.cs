@@ -1,4 +1,5 @@
-﻿using managerEmployees.Domain.Entities;
+﻿using managerEmployees.Domain.Commands;
+using managerEmployees.Domain.Entities;
 using managerEmployees.UseCases.Gateway;
 using managerEmployees.UseCases.Gateway.Repositories;
 using System;
@@ -28,6 +29,16 @@ namespace managerEmployees.UseCases.UseCases
             return await _employeeRepository.GetAllEmployeesAsync();
 
         }
+
+        public async Task<string> UpdateEmployeeAsync(int idEmployee, UpdateEmployee employee)
+        {
+
+            return await _employeeRepository.UpdateEmployeeAsync(idEmployee,employee);
+
+        }
+
+
+
 
 
 

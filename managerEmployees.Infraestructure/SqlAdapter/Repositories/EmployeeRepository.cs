@@ -6,6 +6,7 @@ using managerEmployees.Infraestructure.SqlAdapter.Gateway;
 using managerEmployees.UseCases.Gateway.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,5 +65,27 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
             return employees.ToList();
 
         }
+
+        public async Task<string> UpdateEmployeeAsync(int idEmployee, UpdateEmployee employee)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+
+           string  sqlQuery = $"UPDATE {_tableEmployee} SET subArea_id = @subArea_id, typeDocument = @typeDocument, number_ID = @number_ID, name = @name, lastName = @lastName WHERE employees_id ='{idEmployee}'";
+
+            var rows = await connection.ExecuteAsync(sqlQuery, employee);
+
+            return "Employee updated Successfuly";
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

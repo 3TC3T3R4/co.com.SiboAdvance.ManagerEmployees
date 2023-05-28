@@ -15,7 +15,7 @@ namespace managerEmployess.Api.AutoMapper
 
             #region Employees
             CreateMap<InsertNewEmployee, Employee>().ReverseMap();
-            //CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
+            CreateMap<UpdateEmployee, Employee>().ReverseMap();
             #endregion
 
 

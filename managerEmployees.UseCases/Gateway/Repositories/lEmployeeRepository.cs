@@ -1,4 +1,5 @@
-﻿using managerEmployees.Domain.Entities;
+﻿using managerEmployees.Domain.Commands;
+using managerEmployees.Domain.Entities;
 
 
 namespace managerEmployees.UseCases.Gateway.Repositories
@@ -8,7 +9,7 @@ namespace managerEmployees.UseCases.Gateway.Repositories
 
         Task<string> CreateEmployeeAsync(Employee employee);
         Task<List<Employee>> GetAllEmployeesAsync();
-
+        Task<string> UpdateEmployeeAsync(int idEmployee, UpdateEmployee employee);
 
 
 
