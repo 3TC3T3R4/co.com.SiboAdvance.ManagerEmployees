@@ -23,6 +23,12 @@ namespace managerEmployees.UseCases.UseCases
             return await _employeeRepository.CreateEmployeeAsync(employee);
         }
 
+        public async Task<List<Employee>> GetAllEmployeesAsync() {
+            
+            return await _employeeRepository.GetAllEmployeesAsync();
+
+        }
+
 
 
 

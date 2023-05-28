@@ -7,6 +7,9 @@ namespace managerEmployees.UseCases.Gateway.Repositories
     {
 
         Task<string> CreateEmployeeAsync(Employee employee);
+        Task<List<Employee>> GetAllEmployeesAsync();
+
+
 
 
 

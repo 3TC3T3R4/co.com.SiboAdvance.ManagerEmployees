@@ -12,7 +12,7 @@ namespace managerEmployees.Domain.Entities
     {
 
         public int employees_id { get; set; }
-        public int area_id { get; set; }
+        public int subArea_id { get; set; }
         public string typeDocument { get; set; }
         public int number_ID { get; set; }
         public string name { get; set; } 

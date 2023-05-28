@@ -21,16 +21,18 @@ namespace managerEmployess.Api.Controllers
         }
 
         [HttpPost]
+        [Route("InsertNewEmployee")]
         public async Task<string> Create_Employees([FromBody] InsertNewEmployee command)
         {
             return await _employeeUseCase.CreateEmployeeAsync(_mapper.Map<Employee>(command));
         }
 
-        //[HttpGet]
-        //public async Task<List<ContentWithDeliveries>> Get_All_Content()
-        //{
-        //    return await _contentUseCase.GetContentsAsync();
-        //}
+        [HttpGet]
+        [Route("GetAllEmployees")]
+        public async Task<List<Employee>> Get_All_Employee()
+        {
+            return await _employeeUseCase.GetAllEmployeesAsync();
+        }
 
         //[HttpPut]
         //public async Task<string> Update_Content(string idContent, UpdateContentCommand command)

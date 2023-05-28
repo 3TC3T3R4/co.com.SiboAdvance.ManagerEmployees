@@ -41,7 +41,7 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
             var createEmployee = new InsertNewEmployee
             {
                
-                area_id = employee.area_id,
+                subArea_id = employee.subArea_id,
                 typeDocument = employee.typeDocument,
                 number_ID = employee.number_ID,
                 name = employee.name,
@@ -49,14 +49,20 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
 
             };
 
-            string sqlQuery = $"INSERT INTO {_tableEmployee} (area_id,typeDocument,number_ID,name,lastName) VALUES (@area_id,@typeDocument,@number_ID,@name,@lastName) ";
+            string sqlQuery = $"INSERT INTO {_tableEmployee} (subArea_id,typeDocument,number_ID,name,lastName) VALUES (@subArea_id,@typeDocument,@number_ID,@name,@lastName) ";
             var rows = await connection.ExecuteAsync(sqlQuery, createEmployee);
             return "Employee created Successfuly";
         }
 
+        public async Task<List<Employee>> GetAllEmployeesAsync()
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
+            string sqlQuery = $"SELECT * FROM {_tableEmployee}";
+            var employees = await connection.QueryAsync<Employee>(sqlQuery);
+            
+            return employees.ToList();
 
-
-
+        }
     }
 }
