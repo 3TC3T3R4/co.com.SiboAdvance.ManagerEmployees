@@ -2,7 +2,6 @@
 using managerEmployees.Domain.Commands;
 using managerEmployees.Domain.Entities;
 using managerEmployees.UseCases.Gateway;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace managerEmployess.Api.Controllers
