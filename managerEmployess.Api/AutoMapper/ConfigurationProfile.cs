@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using managerEmployees.Domain.Commands;
+using managerEmployees.Domain.Entities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace managerEmployess.Api.AutoMapper
@@ -8,12 +10,12 @@ namespace managerEmployess.Api.AutoMapper
 
         public ConfigurationProfile()
         {
-         
-         
-            
+
+
+
             #region Employees
-            CreateMap<Employee, CreateEmployeeCommand>().ReverseMap();
-            CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
+            CreateMap<InsertNewEmployee, Employee>().ReverseMap();
+            //CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
             #endregion
 
 
@@ -21,3 +23,4 @@ namespace managerEmployess.Api.AutoMapper
 
         }
     }
+}

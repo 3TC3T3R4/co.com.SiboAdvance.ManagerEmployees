@@ -18,7 +18,7 @@ namespace managerEmployees.UseCases.UseCases
             _employeeRepository = employeeRepository;
         }
 
-        public async Task<Employee> CreateEmployeeAsync(Employee employee)
+        public async Task<string> CreateEmployeeAsync(Employee employee)
         {
             return await _employeeRepository.CreateEmployeeAsync(employee);
         }

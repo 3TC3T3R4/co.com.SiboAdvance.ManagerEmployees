@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using managerEmployees.Domain.Commands;
 using managerEmployees.Domain.Entities;
+using managerEmployees.UseCases.Gateway;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,20 +11,20 @@ namespace managerEmployess.Api.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly IEmployeesUseCase _employeesUseCase;
+        private readonly lEmployeeUseCase _employeeUseCase;
         private readonly IMapper _mapper;
 
 
-        public EmployeesController(IEmployeesUseCase employeesUseCase, IMapper mapper)
+        public EmployeesController(lEmployeeUseCase employeeUseCase, IMapper mapper)
         {
-            _employeesUseCase = employeesUseCase;
+            _employeeUseCase = employeeUseCase;
             _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<string> Create_Employees(CreateEmployeesCommand command)
+        public async Task<string> Create_Employees([FromBody] InsertNewEmployee command)
         {
-            return await _employeesUseCase.CreateEmployeesAsync(_mapper.Map<Employee>(command));
+            return await _employeeUseCase.CreateEmployeeAsync(_mapper.Map<Employee>(command));
         }
 
         //[HttpGet]

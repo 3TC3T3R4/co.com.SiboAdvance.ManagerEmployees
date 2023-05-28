@@ -1,3 +1,10 @@
+using managerEmployess.Api.AutoMapper;
+using AutoMapper.Data;
+using managerEmployees.Infraestructure.SqlAdapter.Gateway;
+using managerEmployees.Infraestructure;
+using managerEmployees.UseCases.Gateway.Repositories;
+using managerEmployees.Infraestructure.SqlAdapter.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +14,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(ConfigurationProfile));
+builder.Services.AddScoped<lEmployeeRepository, EmployeeRepository>();
+
+
+builder.Services.AddTransient<IDbConnectionBuilder>(e =>
+{
+    return new DbConnectionBuilder(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -6,7 +6,7 @@ namespace managerEmployees.UseCases.Gateway.Repositories
     public interface lEmployeeRepository
     {
 
-        Task<Employee> CreateEmployeeAsync(Employee employee);
+        Task<string> CreateEmployeeAsync(Employee employee);
 
 
 

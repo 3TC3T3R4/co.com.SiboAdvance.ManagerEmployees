@@ -11,7 +11,7 @@ namespace managerEmployees.UseCases.Gateway
     public interface lEmployeeUseCase
     {
 
-        Task<Employee> CreateEmployeeAsync(Employee employee);
+        Task<string> CreateEmployeeAsync(Employee employee);
 
 
 
