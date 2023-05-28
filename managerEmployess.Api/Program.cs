@@ -4,6 +4,7 @@ using managerEmployees.Infraestructure.SqlAdapter.Gateway;
 using managerEmployees.Infraestructure;
 using managerEmployees.UseCases.Gateway.Repositories;
 using managerEmployees.Infraestructure.SqlAdapter.Repositories;
+using managerEmployess.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandleMiddleware>();
 
 app.MapControllers();
 
