@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiboAdvance.UseCases.NoSql.Gateway.Repositories.Commands
+namespace ManagerEmployees.UseCases.NoSql.Gateway.Repositories.Commands
 {
-    public class IUserRepository
+    public interface IUserRepository
     {
 
         Task<User> InsertUserAsync(User user);
-
     }
 }

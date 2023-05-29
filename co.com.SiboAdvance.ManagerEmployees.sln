@@ -15,19 +15,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOMAIN", "DOMAIN", "{D72261
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "INFRAESTRUCTURE", "INFRAESTRUCTURE", "{9922C264-B0A9-4CDA-A06E-2B6FE3217A9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "managerEmployess.Api", "managerEmployess.Api\managerEmployess.Api.csproj", "{771533D0-CE2A-4C4B-993F-C9E33A80BE37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "managerEmployess.Api", "managerEmployess.Api\managerEmployess.Api.csproj", "{771533D0-CE2A-4C4B-993F-C9E33A80BE37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "managerEmployees.Domain", "managerEmployees.Domain\managerEmployees.Domain.csproj", "{EC4D748A-341C-439B-BA1A-737256F9EA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "managerEmployees.Domain", "managerEmployees.Domain\managerEmployees.Domain.csproj", "{EC4D748A-341C-439B-BA1A-737256F9EA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "managerEmployees.UseCases", "managerEmployees.UseCases\managerEmployees.UseCases.csproj", "{AFF9188E-1F7F-4A68-8696-AF04317C8628}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "managerEmployees.UseCases", "managerEmployees.UseCases\managerEmployees.UseCases.csproj", "{AFF9188E-1F7F-4A68-8696-AF04317C8628}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "managerEmployees.Infraestructure", "managerEmployees.Infraestructure\managerEmployees.Infraestructure.csproj", "{A04D7DBC-3FF2-4A56-A61F-3448D8552749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "managerEmployees.Infraestructure", "managerEmployees.Infraestructure\managerEmployees.Infraestructure.csproj", "{A04D7DBC-3FF2-4A56-A61F-3448D8552749}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4963AC2F-C495-4BDF-AF9A-60C5898DA8E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test One", "test One", "{AFE5366E-51FF-48CD-B6F0-BEC3D9A4D62A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testManagerEmployees", "testManagerEmployees\testManagerEmployees.csproj", "{5724E45C-A6AC-410A-B721-9D068BB563BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testManagerEmployees", "testManagerEmployees\testManagerEmployees.csproj", "{5724E45C-A6AC-410A-B721-9D068BB563BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{16C1E23F-8C22-44B9-A910-BF8843A97083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOMAIN", "DOMAIN", "{7FAC71CE-12BB-461F-9181-51D832BB8355}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "INFRAESTRUCTURE", "INFRAESTRUCTURE", "{66FF6EE1-EA19-486D-9603-F8271E925B94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.NoSql", "ManagerEmployees.NoSql\ManagerEmployees.NoSql.csproj", "{8FB779D9-538D-421D-8DCB-C77C890FFDB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.domain.NoSql", "ManagerEmployees.domain.NoSql\ManagerEmployees.domain.NoSql.csproj", "{255F1E69-F748-4A84-BF68-6FCC29CB72A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.UseCases.NoSql", "ManagerEmployees.UseCases.NoSql\ManagerEmployees.UseCases.NoSql.csproj", "{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +67,18 @@ Global
 		{5724E45C-A6AC-410A-B721-9D068BB563BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5724E45C-A6AC-410A-B721-9D068BB563BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5724E45C-A6AC-410A-B721-9D068BB563BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FB779D9-538D-421D-8DCB-C77C890FFDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB779D9-538D-421D-8DCB-C77C890FFDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB779D9-538D-421D-8DCB-C77C890FFDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB779D9-538D-421D-8DCB-C77C890FFDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255F1E69-F748-4A84-BF68-6FCC29CB72A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255F1E69-F748-4A84-BF68-6FCC29CB72A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255F1E69-F748-4A84-BF68-6FCC29CB72A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255F1E69-F748-4A84-BF68-6FCC29CB72A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +95,12 @@ Global
 		{A04D7DBC-3FF2-4A56-A61F-3448D8552749} = {9922C264-B0A9-4CDA-A06E-2B6FE3217A9C}
 		{AFE5366E-51FF-48CD-B6F0-BEC3D9A4D62A} = {4963AC2F-C495-4BDF-AF9A-60C5898DA8E2}
 		{5724E45C-A6AC-410A-B721-9D068BB563BA} = {AFE5366E-51FF-48CD-B6F0-BEC3D9A4D62A}
+		{16C1E23F-8C22-44B9-A910-BF8843A97083} = {E35DE273-3A5A-4989-BD4F-2C61F3F0B4CF}
+		{7FAC71CE-12BB-461F-9181-51D832BB8355} = {E35DE273-3A5A-4989-BD4F-2C61F3F0B4CF}
+		{66FF6EE1-EA19-486D-9603-F8271E925B94} = {E35DE273-3A5A-4989-BD4F-2C61F3F0B4CF}
+		{8FB779D9-538D-421D-8DCB-C77C890FFDB8} = {16C1E23F-8C22-44B9-A910-BF8843A97083}
+		{255F1E69-F748-4A84-BF68-6FCC29CB72A7} = {7FAC71CE-12BB-461F-9181-51D832BB8355}
+		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D} = {7FAC71CE-12BB-461F-9181-51D832BB8355}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A18FA73-B8C1-474F-A130-62487889A7D9}

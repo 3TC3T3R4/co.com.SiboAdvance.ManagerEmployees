@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SiboAdvance.Api.Mongo.Controllers
+namespace ManagerEmployees.NoSql.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,10 +21,5 @@ namespace SiboAdvance.Api.Mongo.Controllers
         {
             return await _userUseCase.AddUser(_mapper.Map<User>(command));
         }
-
-
-
-
-
     }
 }

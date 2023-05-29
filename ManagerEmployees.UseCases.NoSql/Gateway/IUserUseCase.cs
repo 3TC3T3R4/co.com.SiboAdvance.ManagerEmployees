@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiboAdvance.UseCases.NoSql.Gateway
+namespace ManagerEmployees.UseCases.NoSql.Gateway
 {
     public interface IUserUseCase
     {

@@ -1,15 +1,16 @@
-﻿using SiboAdvance.UseCases.NoSql.Gateway;
-using SiboAdvance.UseCases.NoSql.Gateway.Repositories.Commands;
+﻿using ManagerEmployees.UseCases.NoSql.Gateway.Repositories.Commands;
+using ManagerEmployees.UseCases.NoSql.Gateway;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiboAdvance.UseCases.NoSql.UseCases
+namespace ManagerEmployees.UseCases.NoSql.UseCases
 {
     public class UserUseCase : IUserUseCase
     {
+
         private readonly IUserRepository _userRepository;
 
         public UserUseCase(IUserRepository userRepository)

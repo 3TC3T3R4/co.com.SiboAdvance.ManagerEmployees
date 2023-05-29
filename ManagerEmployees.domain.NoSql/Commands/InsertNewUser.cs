@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiboAdvance.domain.NoSql.Entities
+namespace ManagerEmployees.domain.NoSql.Commands
 {
-    public class User
+    public class InsertNewUser
     {
         public string id_fire { get; set; }
         public string user { get; set; }
         public string password { get; set; }
-
     }
 }
