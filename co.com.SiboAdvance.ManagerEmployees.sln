@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.domain.NoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.UseCases.NoSql", "ManagerEmployees.UseCases.NoSql\ManagerEmployees.UseCases.NoSql.csproj", "{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerEmployees.Infraestructure.NoSql", "ManagerEmployees.Infraestructure.NoSql\ManagerEmployees.Infraestructure.NoSql.csproj", "{87BBF608-5796-49B2-892E-0040A5390DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BBF608-5796-49B2-892E-0040A5390DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BBF608-5796-49B2-892E-0040A5390DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BBF608-5796-49B2-892E-0040A5390DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BBF608-5796-49B2-892E-0040A5390DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{8FB779D9-538D-421D-8DCB-C77C890FFDB8} = {16C1E23F-8C22-44B9-A910-BF8843A97083}
 		{255F1E69-F748-4A84-BF68-6FCC29CB72A7} = {7FAC71CE-12BB-461F-9181-51D832BB8355}
 		{08AD2FF3-1C62-4AC4-B5C3-7896153BC27D} = {7FAC71CE-12BB-461F-9181-51D832BB8355}
+		{87BBF608-5796-49B2-892E-0040A5390DFC} = {66FF6EE1-EA19-486D-9603-F8271E925B94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A18FA73-B8C1-474F-A130-62487889A7D9}

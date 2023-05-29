@@ -1,3 +1,12 @@
+using AutoMapper.Data;
+using ManagerEmployees.Infraestructure.NoSql;
+using ManagerEmployees.Infraestructure.NoSql.Interfaces;
+using ManagerEmployees.Infraestructure.NoSql.Repositories;
+using ManagerEmployees.NoSql.AutoMapper;
+using ManagerEmployees.UseCases.NoSql.Gateway;
+using ManagerEmployees.UseCases.NoSql.Gateway.Repositories.Commands;
+using ManagerEmployees.UseCases.NoSql.UseCases;
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);

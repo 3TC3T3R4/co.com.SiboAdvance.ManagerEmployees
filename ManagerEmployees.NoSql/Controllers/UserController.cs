@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using ManagerEmployees.domain.NoSql.Commands;
+using ManagerEmployees.domain.NoSql.Entities;
+using ManagerEmployees.UseCases.NoSql.Gateway;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagerEmployees.NoSql.Controllers
