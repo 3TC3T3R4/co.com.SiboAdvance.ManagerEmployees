@@ -41,11 +41,11 @@ namespace managerEmployess.Api.Controllers
             return await _employeeUseCase.UpdateEmployeeAsync(idEmployee, command);
         }
 
-        //[HttpGet("{idContent}")]
-        //public async Task<ContentWithDelivery> Get_ById_Content(string idContent)
-        //{
-        //    return await _contentUseCase.GetContentByIdAsync(idContent);
-        //}
+        [HttpGet("{idEmployee}")]
+        public async Task<Employee> Get_Employee_ById(int idEmployee)
+        {
+            return await _employeeUseCase.GetEmployeeByIdAsync(idEmployee);
+        }
 
 
 

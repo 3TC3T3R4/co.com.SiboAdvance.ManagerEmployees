@@ -37,7 +37,12 @@ namespace managerEmployees.UseCases.UseCases
 
         }
 
+        public async Task<Employee> GetEmployeeByIdAsync(int idEmployee)
+        {
 
+            return await _employeeRepository.GetEmployeeByIdAsync(idEmployee);
+
+        }
 
 
 

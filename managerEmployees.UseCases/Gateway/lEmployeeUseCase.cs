@@ -15,7 +15,7 @@ namespace managerEmployees.UseCases.Gateway
         Task<string> CreateEmployeeAsync(Employee employee);
         Task<List<Employee>> GetAllEmployeesAsync();
         Task<string> UpdateEmployeeAsync(int idEmployee, UpdateEmployee employee);
-
+        Task<Employee> GetEmployeeByIdAsync(int idEmployee);
 
 
     }

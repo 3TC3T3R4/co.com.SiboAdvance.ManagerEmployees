@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using Dapper;
 using managerEmployees.Domain.Commands;
 using managerEmployees.Domain.Entities;
@@ -8,7 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
@@ -27,16 +30,15 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
             _mapper = mapper;
         }
 
-
         public async Task<string> CreateEmployeeAsync(Employee employee)
         {
 
-            //Guard.Against.Null(learningPath, nameof(learningPath));
-            //Guard.Against.NullOrEmpty(learningPath.CoachID, nameof(learningPath.CoachID), "Ingresa por favor el id del coach, no puede ser vacio o nulo");
-            //Guard.Against.NullOrEmpty(learningPath.Title, nameof(learningPath.Title), "Ingresa un  titulo por favor, no puedes dejar el campo como nulo o vacio");
-            //Guard.Against.NullOrEmpty(learningPath.Description, nameof(learningPath.Description), "No puedes ingresar una descripcion vacia o nula, por favor ingresa alguna descripcion");
-            ////Guard.Against.NullOrEmpty(learningPath.Duration.ToString(),nameof(learningPath.Duration), "Ingresa por favor una duracion, no puede ser nula o vacia");
-            ////  Guard.Against.NullOrEmpty(learningPath.StatePath.ToString() ,nameof(learningPath.StatePath));
+            Guard.Against.Null(employee, nameof(employee));
+            Guard.Against.NullOrEmpty(employee.subArea_id.ToString(), nameof(employee.subArea_id), "Ingresa por favor  una sub Area para el empleado");
+            Guard.Against.NullOrEmpty(employee.typeDocument, nameof(employee.typeDocument), "Ingresa por favor un tipo de documento al empleado");
+            Guard.Against.NullOrEmpty(employee.number_ID.ToString(), nameof(employee.number_ID), "Ingresa por favor un numero de documento al empleado");
+            Guard.Against.NullOrEmpty(employee.name, nameof(employee.name), "Ingresa por favor un nombre al empleado");
+            Guard.Against.NullOrEmpty(employee.lastName, nameof(employee.lastName), "Ingresa por favor un apellido al empleado");
 
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             var createEmployee = new InsertNewEmployee
@@ -47,11 +49,20 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
                 number_ID = employee.number_ID,
                 name = employee.name,
                 lastName = employee.lastName,
-
             };
+
+            // Verificamos  si esa subArea existe para poder crear el empleado ya que es una FK
+            string selectQuery = $"SELECT COUNT(*) FROM SubArea WHERE subArea_id = @subArea_id";
+            var subAreaCount = await connection.ExecuteScalarAsync<int>(selectQuery, new { subArea_id = employee.subArea_id });
+            if (subAreaCount == 0)
+            {
+                connection.Close();
+                return "La sub Área especificada no existe en la base de datos.";
+            }
 
             string sqlQuery = $"INSERT INTO {_tableEmployee} (subArea_id,typeDocument,number_ID,name,lastName) VALUES (@subArea_id,@typeDocument,@number_ID,@name,@lastName) ";
             var rows = await connection.ExecuteAsync(sqlQuery, createEmployee);
+            connection.Close();
             return "Employee created Successfuly";
         }
 
@@ -61,7 +72,7 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
 
             string sqlQuery = $"SELECT * FROM {_tableEmployee}";
             var employees = await connection.QueryAsync<Employee>(sqlQuery);
-            
+            connection.Close();
             return employees.ToList();
 
         }
@@ -70,20 +81,52 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
-           string  sqlQuery = $"UPDATE {_tableEmployee} SET subArea_id = @subArea_id, typeDocument = @typeDocument, number_ID = @number_ID, name = @name, lastName = @lastName WHERE employees_id ='{idEmployee}'";
+            Guard.Against.Null(employee, nameof(employee));
+            Guard.Against.NullOrEmpty(employee.subArea_id.ToString(), nameof(employee.subArea_id), "Ingresa por favor  una sub Area para el empleado");
+            Guard.Against.NullOrEmpty(employee.typeDocument, nameof(employee.typeDocument), "Ingresa por favor un tipo de documento al empleado");
+            Guard.Against.NullOrEmpty(employee.number_ID.ToString(), nameof(employee.number_ID), "Ingresa por favor un numero de documento al empleado");
+            Guard.Against.NullOrEmpty(employee.name, nameof(employee.name), "Ingresa por favor un nombre al empleado");
+            Guard.Against.NullOrEmpty(employee.lastName, nameof(employee.lastName), "Ingresa por favor un apellido al empleado");
+
+            string selectQuery = $"SELECT COUNT(*) FROM SubArea WHERE subArea_id = @subArea_id";
+            var subAreaCount = await connection.ExecuteScalarAsync<int>(selectQuery, new { subArea_id = employee.subArea_id });
+            if (subAreaCount == 0)
+            {
+                connection.Close();
+                return "La sub Área especificada no existe en la base de datos para poder actualizar el registro.";
+            }
+
+            string  sqlQuery = $"UPDATE {_tableEmployee} SET subArea_id = @subArea_id, typeDocument = @typeDocument, number_ID = @number_ID, name = @name, lastName = @lastName WHERE employees_id ='{idEmployee}'";
 
             var rows = await connection.ExecuteAsync(sqlQuery, employee);
-
+            connection.Close();
             return "Employee updated Successfuly";
 
         }
 
+        public async Task<Employee> GetEmployeeByIdAsync(int idEmployee) { 
+        
+           var connection = await _dbConnectionBuilder.CreateConnectionAsync();
 
+            Guard.Against.NullOrEmpty(idEmployee.ToString(), nameof(idEmployee), "Ingresa por favor  un id valido para empleado");
 
+            string selectQuery = $"SELECT COUNT(*) FROM Employee WHERE employees_id = '{idEmployee}'";
+            var subAreaCount = await connection.ExecuteScalarAsync<int>(selectQuery, new { employee_id = idEmployee });
+            if (subAreaCount == 0)
+            {
+                connection.Close();
+                throw new ArgumentException("User not find in us database");
+            }
 
+            string sqlQuery = $"SELECT * FROM {_tableEmployee} WHERE employees_id ='{idEmployee}'";
+           var employees = await connection.QueryAsync<Employee>(sqlQuery);
+            connection.Close();
 
+            return employees.FirstOrDefault();
 
-
+        
+        
+        }
 
 
 
