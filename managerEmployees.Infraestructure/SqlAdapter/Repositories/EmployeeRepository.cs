@@ -63,7 +63,7 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
             string sqlQuery = $"INSERT INTO {_tableEmployee} (subArea_id,typeDocument,number_ID,name,lastName) VALUES (@subArea_id,@typeDocument,@number_ID,@name,@lastName) ";
             var rows = await connection.ExecuteAsync(sqlQuery, createEmployee);
             connection.Close();
-            return "Employee created Successfuly";
+            return JsonSerializer.Serialize("Employee created Successfuly");
         }
 
         public async Task<List<Employee>> GetAllEmployeesAsync()
@@ -100,7 +100,7 @@ namespace managerEmployees.Infraestructure.SqlAdapter.Repositories
 
             var rows = await connection.ExecuteAsync(sqlQuery, employee);
             connection.Close();
-            return "Employee updated Successfuly";
+            return JsonSerializer.Serialize("Employee updated Successfuly");
 
         }
 
