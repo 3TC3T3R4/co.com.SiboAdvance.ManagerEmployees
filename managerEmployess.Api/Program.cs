@@ -35,6 +35,11 @@ builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(C
 
 builder.Services.AddScoped<lEmployeeUseCase, EmployeeUseCase>();
 builder.Services.AddScoped<lEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<lAreaUseCase, AreaUseCase>();
+builder.Services.AddScoped<lAreaRepository, AreaRepository>();
+builder.Services.AddScoped<lSubAreaUseCase, SubAreaUseCase>();
+builder.Services.AddScoped<lSubAreaRepository, SubAreaRepository>();
+
 
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
